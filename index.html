@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Eco Charge</title>
+  <!-- Link to Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: rgb(233, 231, 197);
+      border-color: black;
+      border-width: 1cm;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #logo {
+      height: 120px;
+      width: 120px;
+    }
+
+    h1 {
+      margin: 0;
+      font-weight: bold;
+      color: #4caf50;
+      font-size: 60px;
+    }
+
+    #navigation {
+      display: flex;
+    }
+
+    #navigation button {
+      margin-left: 10px;
+      padding: 8px 16px;
+      background-color: #4caf50;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+
+    #navigation button:hover {
+      background-color: #45a049;
+    }
+
+    #map-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 0;
+    }
+
+    #search-container {
+      padding: 20px;
+      background-color: #fff;
+      margin-right: 0; /* Remove right margin */
+    }
+
+    #map {
+      height: calc(100vh - 120px);
+      width: calc(100% - 250px); /* Adjusted width */
+    }
+
+    .input-group {
+      position: relative;
+      width: 250px;
+    }
+
+    .form-control {
+      width: calc(100% - 34px);
+      border-radius: 4px;
+      padding: 8px;
+      border: 1px solid #4caf50;
+    }
+
+    .btn-primary {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: calc(100% - 2px);
+      width: 34px;
+      border-radius: 0 4px 4px 0;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Logo -->
+     <img src="{{ url_for('static', filename='image.jpeg') }}" id="logo">
+
+    <!-- Heading -->
+    <h1>Welcome to Eco Charge</h1>
+
+    <!-- Navigation buttons -->
+    <div id="navigation">
+      <button>Home</button>
+      <button>Contact</button>
+      <a href="{{ url_for('charger_details') }}"><button>About Chargers</button></a>
+      <button>Login</button>
+      <button>Sign Up</button>
+    </div>
+  </header>
+
+  <div id="map-container">
+    <div id="search-container">
+      <form id="searchForm">
+        <div class="input-group">
+          <input id="search" type="text" class="form-control" name="location" placeholder="Enter location">
+          <button type="button" class="btn-primary" onclick="findChargingStations()">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div id="map"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!-- charging_cost.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charging Cost</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .result {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px; /* Add margin to separate buttons */
+        }
+
+        .directions-button, .home-button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none; /* Remove default underline */
+            transition: background-color 0.3s; /* Add smooth transition effect */
+        }
+
+        .directions-button:hover, .home-button:hover {
+            background-color: #45a049;
+        }
+
+        .home-button {
+            background-color: #f44336; /* Change color for home button */
+        }
+
+        .home-button:hover {
+            background-color: #d32f2f; /* Change hover color for home button */
+        }
+    </style>
+</head>
+<body>
+    <h2>Charging Cost and Time</h2>
+    <div class="result">
+        <p><strong>Charging Station:</strong> {{ station.name }}</p>
+        <p><strong>Charger Type:</strong> {{ charger_type.name }}</p>
+        <p><strong>Units:</strong> {{ units }}</p>
+        <p><strong>Charging Cost:</strong> ₹{{ charging_cost }}</p>
+        <p><strong>Charging Time:</strong> {{ charging_time }} min</p>
+        <!-- Get directions and Go to Home buttons -->
+        <div class="button-container">
+            <a class="directions-button" href="https://www.google.com/maps/search/?api=1&query={{ station.name }} {{ station.location }}" target="_blank">Get Directions</a>
+            <a href="{{ url_for('index') }}" class="home-button">Go to Home</a>
+        </div>
+    </div>
+</body>
+</html>
