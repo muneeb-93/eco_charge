@@ -13,8 +13,8 @@ Eco Charge is a Flask-based web application designed to help users locate electr
 ## Project Structure
 ```
 EcoCharge/
-│-- app.py                 # Main Flask application
-│-- backend.py             # Additional backend functionalities
+
+│-- backend.py             # Main Flask application
 │-- templates/
 │   │-- index.html         # Home page with map and search functionality
 │   │-- charger.html       # Select charger type and input units
@@ -73,8 +73,7 @@ EcoCharge/
 - Real-time station availability updates.
 - Mobile app version.
 
-## License
-This project is licensed under the MIT License.
+
 
 ## Contributors
 - Mohammed Nomaan
