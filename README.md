@@ -72,6 +72,7 @@ EcoCharge/
 - User authentication for personalized experiences.
 - Real-time station availability updates.
 - Mobile app version.
+- EV trip planner
 
 
 
